@@ -49,8 +49,9 @@ public class FlipkartStepDefs {
 	@Then("products are visible")
 	public void products_are_visible() throws IOException {
 		FlipkartProductsPage productsPage = new FlipkartProductsPage(driver);
-		String searchResult = productsPage.searchResult();
-		Assert.assertEquals(searchResult, "Showing 1 – 24 of 689 results for \"mobiles\"");
+		Assert.assertTrue(productsPage.searchResult());
+		DriverFactory driverFactory = new DriverFactory();
+		driverFactory.quitDriver(driver);
 	}
 
 }

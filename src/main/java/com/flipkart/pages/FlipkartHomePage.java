@@ -7,6 +7,7 @@ public class FlipkartHomePage extends WebPage {
 	private String loginDismissXpath = "//button[@class='_2KpZ6l _2doB4z']";
 	private String searchBoxXpath = "//div[@class='_1cmsER']/form/div/div/input";
 	private String loginButtonXpath = "//a[text()='Login']";
+	private String nameXpath = "(//div[@class='exehdJ'])[1]";
 
 	public FlipkartHomePage(WebDriver driver) {
 		super(driver);
@@ -36,4 +37,7 @@ public class FlipkartHomePage extends WebPage {
 		super.click(loginButtonXpath);
 	}
 
+	public boolean displayName() {
+		return super.isDisplayed(nameXpath);
+	}
 }

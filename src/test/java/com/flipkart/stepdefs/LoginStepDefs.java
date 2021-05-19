@@ -10,6 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.Assert;
 
 public class LoginStepDefs {
 	WebDriver driver;
@@ -35,8 +36,20 @@ public class LoginStepDefs {
 		loginpage.clickOnLoginButton();
 	}
 
-	@Then("login should be succesfull")
-	public void login_should_be_succesfull() {
+	@Then("name should be displayed")
+	public void name_should_be_displayed() {
+		FlipkartHomePage homePage = new FlipkartHomePage(driver);
+		Assert.assertTrue(homePage.displayName());
+		DriverFactory driverFactory = new DriverFactory();
+		driverFactory.quitDriver(driver);
+	}
+
+	@Then("error message should be displayed")
+	public void error_message_should_be_displayed() {
+		FlipkartLoginPage loginpage = new FlipkartLoginPage(driver);
+		Assert.assertTrue(loginpage.displayErrorMessaage());
+		DriverFactory driverFactory = new DriverFactory();
+		driverFactory.quitDriver(driver);
 	}
 
 }

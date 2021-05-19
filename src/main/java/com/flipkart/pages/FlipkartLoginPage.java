@@ -7,6 +7,7 @@ public class FlipkartLoginPage extends WebPage {
 	private String usernameXpath = "//input[@class='_2IX_2- VJZDxU']";
 	private String passwordXpath = "//input[@type='password']";
 	private String loginButtonXpath = "//button[@class='_2KpZ6l _2HKlqd _3AWRsL']";
+	private String errorMessageXpath = "//span[@class='_2YULOR']";
 
 	public FlipkartLoginPage(WebDriver driver) {
 		super(driver);
@@ -28,4 +29,9 @@ public class FlipkartLoginPage extends WebPage {
 	public void clickOnLoginButton() {
 		super.click(loginButtonXpath);
 	}
+
+	public boolean displayErrorMessaage() {
+		return super.isDisplayed(errorMessageXpath);
+	}
+
 }

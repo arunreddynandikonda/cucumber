@@ -138,4 +138,9 @@ public class WebPage {
 			find.findElement(xpath).click();
 		}
 	}
+
+	public boolean isDisplayed(String xpath) {
+		WebElement element = visibleWait(xpath);
+		return element.isDisplayed();
+	}
 }

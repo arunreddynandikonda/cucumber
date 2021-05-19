@@ -22,9 +22,8 @@ public class FlipkartProductsPage extends WebPage {
 		super(driver);
 	}
 
-	public String searchResult() {
-		String text = super.visibleWait(resultsTextXpath).getText();
-		return text;
+	public boolean searchResult() {
+		return super.isDisplayed(resultsTextXpath);
 	}
 
 	public void enterMiniumPrice(String value) {
